@@ -1,58 +1,36 @@
 import React from "react";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
 import { motion } from "framer-motion";
-
-import "react-vertical-timeline-component/style.min.css";
 
 import { styles } from "../styles";
 import { skills } from "../constants";
 import { SectionWrapper } from "../hoc";
-import { textVariant } from "../utils/motion";
+import { textVariant, fadeIn } from "../utils/motion";
 
-const SkillsCard = ({ mySkill }) => {
+const SkillCard = ({ skill, index }) => {
   return (
-    <VerticalTimelineElement
-      contentStyle={{
-        background: "#1d1836",
-        color: "#fff",
-      }}
-      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
-      // date={mySkill.date}
-      iconStyle={{ background: mySkill.iconBg }}
-      icon={
-        <div className='flex justify-center items-center w-full h-full'>
-          <img
-            src={mySkill.icon}
-            alt={mySkill.company_name}
-            className='w-[60%] h-[60%] object-contain'
-          />
-        </div>
-      }
-    >
-      <div>
-        <h3 className='text-white text-[24px] font-bold'>{mySkill.title}</h3>
-        <p
-          className='text-secondary text-[16px] font-semibold'
-          style={{ margin: 0 }}
-        >
-          {mySkill.company_name}
-        </p>
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+      className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full">
+      <div className="relative w-full h-[230px]">
+        <img
+          src={skill.icon}
+          alt={skill.title}
+          className="w-full h-full object-cover rounded-2xl"
+        />
       </div>
-
-      <ul className='mt-5 list-disc ml-5 space-y-2'>
-        {mySkill.points.map((point, index) => (
-          <li
-            key={`experience-point-${index}`}
-            className='text-white-100 text-[14px] pl-1 tracking-wider'
-          >
-            {point}
-          </li>
-        ))}
-      </ul>
-    </VerticalTimelineElement>
+      <div className="mt-5">
+        <h3 className="text-white font-bold text-[24px]">{skill.title}</h3>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {skill.points.map((point, index) => (
+            <p
+              key={`skill-point-${index}`}
+              className="text-secondary text-[14px]">
+              {point}
+            </p>
+          ))}
+        </div>
+      </div>
+    </motion.div>
   );
 };
 
@@ -61,25 +39,29 @@ const Skills = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} text-center`}>
-         These are My skills
+          My Technical Expertise
         </p>
-        <h2 className={`${styles.sectionHeadText} text-center`}>
-          Skrills
-        </h2>
+        <h2 className={`${styles.sectionHeadText} text-center`}>Skills</h2>
       </motion.div>
 
-      <div className='mt-20 flex flex-col'>
-        <VerticalTimeline>
-          {skills.map((mySkill, index) => (
-            <SkillsCard
-              key={`mySkill-${index}`}
-              mySkill={mySkill}
-            />
-          ))}
-        </VerticalTimeline>
+      <div className="w-full flex">
+        <motion.p
+          variants={fadeIn("", "", 0.1, 1)}
+          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]">
+          As a full-stack developer, I possess a diverse set of skills spanning
+          front-end, back-end, and DevOps technologies. My expertise allows me
+          to create robust, scalable, and user-friendly applications. Here's an
+          overview of my key skills:
+        </motion.p>
+      </div>
+
+      <div className="mt-20 flex flex-wrap gap-7">
+        {skills.map((skill, index) => (
+          <SkillCard key={`skill-${index}`} index={index} skill={skill} />
+        ))}
       </div>
     </>
   );
 };
 
-export default SectionWrapper(Skills, "work");
+export default SectionWrapper(Skills, "skills");

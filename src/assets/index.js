@@ -6,10 +6,10 @@ import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
-import mobile from "./mobile.png"
-import project5 from "./project5.jpeg"
-import project1 from "./project1.jpeg"
-import project6 from "./project6.jpeg"
+import mobile from "./mobile.png";
+import project5 from "./project5.jpeg";
+import project1 from "./project1.jpeg";
+import project6 from "./project6.jpeg";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -28,23 +28,36 @@ import threejs from "./tech/threejs.svg";
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
-import frontend from "./company/frontend.png"
-import cloud from "./company/cloud.png"
+import frontend from "./company/frontend.png";
+import cloud from "./company/cloud.png";
 import tesla from "./company/tesla.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import socialmedia from "./socialmedia.png";
+import mernpic from "./mernpic.png";
+import calculator from "./calculator.png";
+import bloggapp from "./bloggapp.png";
+import moviefinder from "./moviefinder.png";
+import mernapp from "./mernapp.jpg";
+import dataentry from "./dataentry.png";
+import caferacer from "./caferacer.jpg";
 
 export {
- 
+  caferacer,
   logo,
+  dataentry,
+  mernapp,
+  moviefinder,
+  bloggapp,
+  calculator,
   backend,
   creator1,
   Research,
   frontend,
   cloud,
-  mobile, 
+  mobile,
   web,
   github,
   menu,
@@ -69,7 +82,9 @@ export {
   carrent,
   jobit,
   tripguide,
-  project5, 
+  project5,
   project1,
   project6,
+  socialmedia,
+  mernpic,
 };
